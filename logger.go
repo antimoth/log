@@ -72,9 +72,9 @@ func terminalFormat() log.Format {
 	return log.FormatFunc(func(r *log.Record) []byte {
 		b := &bytes.Buffer{}
 		fmt.Fprintf(b, "[%v][%s] %s", toLvlStr(r.Lvl), r.Time.Format(timeFormat), r.Msg)
-		// if len(r.Ctx) > 0 && len(r.Msg) < termMsgJust {
-		// 	b.Write(bytes.Repeat([]byte{' '}, termMsgJust-len(r.Msg)))
-		// }
+		if len(r.Ctx) > 0 && len(r.Msg) < termMsgJust {
+			b.Write(bytes.Repeat([]byte{' '}, termMsgJust-len(r.Msg)))
+		}
 		printLogCtx(b, r.Ctx)
 		return b.Bytes()
 	})
