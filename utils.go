@@ -43,6 +43,6 @@ func getCodePosition(skip int) string {
 	if !ok {
 		return "Get runtime caller error!"
 	}
-        return fmt.Sprintf("  logInvokePoint => %s:%d", fileP, line)
+        return fmt.Sprintf("%s:%d", fileP, line)
 }
 

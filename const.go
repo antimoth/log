@@ -3,7 +3,7 @@ package log
 
 const (
 	timeFormat  = "2006-01-02 15:04:05.000"
-	termMsgJust = 40
+	termMsgJust = 30
 
         // StrLvlDebug debug level
 	StrLvlDebug   = "DEBUG"
